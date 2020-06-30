@@ -1,0 +1,54 @@
+{% extends "template.html" %}
+
+{% block content %}
+<div class="row">
+  <div class="col-md-6">
+    {% with messages = get_flashed_messages() %}
+    {% if messages %}
+    {% for message in messages %}
+    <div class="alert alert success alert-dismissible fade show" role="alert">
+      {{ message }}
+      <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    {% endfor %}
+    {% endif %}
+    {% endwith %}
+  </div>
+</div>
+<h4>Add Property</h4>
+<form action="/add" method="POST">
+  <div class="form-row">
+    <div class="form-group col-md-6">
+      <label class="control-label" for="inputIdRes"><b>Title</b></label>
+      <input type="text" class="form-control" name="titleRes" id="inputIdRes" placeholder="Title">
+    </div>    
+  </div>
+  <div class="form-row">
+    <div class="form-group col-md-6">
+      <label class="control-label" for="inputNameRes"><b>Type</b></label>
+      <input type="text" class="form-control" name="typeRes" id="inputNameRes" placeholder="Type">
+    </div>
+    <div class="form-group col-md-6">
+      <label class="control-label" for="inputSurRes"><b>Address</b></label>
+      <input type="text" class="form-control" name="addressRes" id="inputSurRes" placeholder="Address">
+    </div>
+  </div>
+  <div class="form-row">
+    <div class="form-group col-md-4">
+      <label class="control-label" for="dateRes"><b>Rooms</b></label>
+      <input type="text" class="form-control" name="roomsRes" id="inputDateRes" placeholder="3"/>    
+    </div>
+    <div class="form-group col-md-4">
+      <label class="control-label" for="cityRes"><b>Price</b></label>
+      <input type="text" class="form-control" name="priceRes" id="inputCityRes" placeholder="300000"/>    
+    </div>
+    <div class="form-group col-md-4">
+      <label class="control-label" for="districtRes"><b>Area</b></label>
+      <input type="text" class="form-control" name="areaRes" id="inputDistrictRes" placeholder="1"/>    
+    </div>
+  </div>
+  <button type="submit" class="btn btn-dark">Submit</button>
+</form>
+{% endblock %}
